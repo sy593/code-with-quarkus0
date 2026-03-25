@@ -1,82 +1,36 @@
-# code-with-quarkus
+# quarkus프로젝트시작! (학번:20250596 이름:김승윤 )
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## 2, 3주차수업내용
+실습1 : 쿼크스 환경구축 및 준비 - VS Code 설치 및 Quarkus Tools 확장하는 Quarkus 개발 환경 구축을 하였다. Quarkus 프로젝트 실행하기 위해 하단 터미널에 직접 ./mvnw quarkus:dev을 입력하여 시작한다. 
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+실습2 : HTML 기본 및 LOL 메인화면 개발 - http://localhost:8080/주소로 접속하며 일부 코드를 수정하며 작성하며 HTML 기본과 LOL 메인화면 페이지 만들기를 하였다. LOL 테마를 커스텀하고 반응형 그리드를 변경하는 실습을 해보았다. 
 
-## Running the application in dev mode
+<divalign="center">
+<img src="![alt text](<2026-03-11 135510.png>)" width="45%" alt="실습1 화면">
+<img src="![alt text](<2026-03-18 1.png>)" width="45%" alt="실습2 화면">
+<img src="![alt text](<2026-03-18 2.png>)" width="45%" alt="실습2 화면">
+</div>
+<br>
 
-You can run your application in dev mode that enables live coding using:
+## 4주차수업내용
+실습1: 하이퍼 링크 - lol 메뉴에 링크 추가하기 위해 공식웹사이트 메뉴 및 링크를 만든다.                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://lol.ps/"target="_blank">외부웹사이트</a></li>
+                </ul>
+                이 코드를 통해 메뉴에서 외부웹사이트를 클릭하면 공식웹사이트로 이동하게 된다.
 
-```shell script
-./mvnw quarkus:dev
-```
+실습2: 이미지 -  현재 메인 화면 이미지는 <img src=“ “> 라는 코드로 되어있고 "" 안에 사진 이름을 넣으면 된다. 먼저 Resources 폴더 안에 images 폴더 생성한다. 그리고 다운받은 이미지를 이동하여 파일의 경로와 이름을 직접 지정하고 저장을 하고 난 후, 새로고침을 하면 기존 사진에서 내가 고른 사진으로 변한 것을 볼 수 있다.
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+실습3:  네비게이션 바 수정하기 -  기본 메뉴를 수정하고 디자인 배경이 흰색으로 되어 있어서 배경과 색이 살짝 다른 어두운 검정색으로 수정했다. 그리고 드랍다운메뉴인 외부사이트를 눌러 롤전적을 클릭하면 공식웹사이트로 가는 주소 링크도 추가했다.
 
-## Packaging and running the application
+실습4: 챔피언 카드 추가하기(그리드, 세부정보) - 현재 그리드는 row g-4인데 이것을 주석하고 열의 너비를 자동 지정하는 <div class="row row-cols-auto g-4">로 변경하면 카드가 넓어진 것을 볼 수 있다. 그리고 세부 정보를 넣기 위해 챔피온(Aatrox)의 기본 정보 수정하기 위해 기존 코드는 주석 처리를 한고 새로운 코드를 작성 후 저장한다. 이후 화면을 확인하면 Aatrox만 커진 것을 볼 수 있었다.
 
-The application can be packaged using:
+실습5: 모달창 구현 - 챔피온 세부 정보 출력하기 위해 모달창을 구현한다. 내부 페이지는 Aatrox.html를삽입 했고 기본 헤더, 바디, 푸터로 구성되어 있다. 저장 이후 화면을 확인하면 Aatrox 아래에 세부 정보와 상세 보기가 생겼다. 상세파일을 클릭해보면 아직 파일이 없다.
 
-```shell script
-./mvnw package
-```
-
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/code-with-quarkus-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- REST ([guide](https://quarkus.io/guides/rest)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-- Qute Web ([guide](https://quarkiverse.github.io/quarkiverse-docs/quarkus-qute-web/dev/index.html)): Serves Qute templates directly over HTTP.
-- Qute ([guide](https://quarkus.io/guides/qute)): Offer templating support for web, email, etc in a build time, type-safe way
-- OpenID Connect ([guide](https://quarkus.io/guides/security-openid-connect)): Verify Bearer access tokens and authenticate users with Authorization Code Flow
-- WebSockets ([guide](https://quarkus.io/guides/websockets)): WebSocket communication channel support
-
-## Provided Code
-
-### Qute Web
-
-Qute templates like `some-page.html` served via HTTP automatically by Quarkus from the `src/main/resource/templates/pub` directory. No controllers needed. Once the quarkus app is started visit the generated page at http://localhost:8080/some-page?name=World
-
-[Related guide section...](https://docs.quarkiverse.io/quarkus-qute-web/dev/index.html)
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
-
-### WebSockets
-
-WebSocket communication channel starter code
-
-[Related guide section...](https://quarkus.io/guides/websockets)
+<divalign="center">
+<img src="![alt text](image-3.png)" width="45%" alt="실습1 화면">
+<img src="![alt text](image-2.png)" width="45%" alt="실습2 화면">
+<img src="![alt text](<스크린샷 2026-03-25 213402.png>)" width="45%" alt="실습3 화면">
+<img src="![alt text](image-1.png)" width="45%" alt="실습4 화면">
+<img src="![alt text](image.png)" width="45%" alt="실습5 화면">
+</div>
+<br>
