@@ -22,31 +22,6 @@
     </style>
 </head>
 <body>
-    <!-- 모달 (iframe으로 Aatrox.html 불러오기) -->
-        <div class="modal fade" id="modalAatrox" tabindex="-1" aria-labelledby="modalAatroxLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content bg-dark text-white border-secondary">
-        <!-- 헤더 -->
-        <div class="modal-header border-secondary">
-        <h5 class="modal-title" id="modalAatroxLabel">아트록스 (Aatrox) 상세 정보</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- 바디: iframe으로 내용 채움 -->
-        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
-        <iframe
-        src=“modals/Aatrox.html"
-        frameborder="0"
-        style="width: 100%; height: 100%; border: none;"
-        allowfullscreen>
-        </iframe>
-        </div>
-        <!-- 푸터 -->
-        <div class="modal-footer border-secondary">
-        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
-        </div>
-        </div>
-        </div>
-        </div>
     <!-- 헤더 (Navbar)
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
@@ -81,7 +56,7 @@
         <a class="nav-link" href="#">챔피온</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">다운로드</a>
+        <a class="nav-link" href="main_page_sub/download.html">다운로드</a>
       </li>
        <li class="nav-item">
         <a class="nav-link" href="#">로그인</a>
@@ -225,6 +200,31 @@
             </div>
         </div>
     </section>
-    
+<!--모달(iframe으로Aatrox.html 불러오기) -->
+<div class="modal fade" id="modalAatrox" tabindex="-1" aria-labelledby="modalAatroxLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-content bg-dark text-white border-secondary">
+<!--헤더-->
+<div class="modal-header border-secondary">
+<h5 class="modal-title" id="modalAatroxLabel">아트록스(Aatrox) 상세정보</h5>
+<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<!--바디: iframe으로내용채움-->
+<div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+<iframe
+src="modals/Aatrox.html"
+frameborder="0"
+style="width: 100%; height: 100%; border: none;"
+allowfullscreen>
+</iframe>
+</div>
+<!--푸터-->
+<div class="modal-footer border-secondary">
+<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+</div>
+</div>
+</div>
+</div>
+
 </body>
 </html>
