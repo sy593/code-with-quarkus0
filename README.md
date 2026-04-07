@@ -6,9 +6,9 @@
 실습2 : HTML 기본 및 LOL 메인화면 개발 - http://localhost:8080/주소로 접속하며 일부 코드를 수정하며 작성하며 HTML 기본과 LOL 메인화면 페이지 만들기를 하였다. LOL 테마를 커스텀하고 반응형 그리드를 변경하는 실습을 해보았다. 
 
 <divalign="center">
-<img src="![alt text](<2026-03-11 135510.png>)" width="45%" alt="실습1 화면">
-<img src="![alt text](<2026-03-18 1.png>)" width="45%" alt="실습2 화면">
-<img src="![alt text](<2026-03-18 2.png>)" width="45%" alt="실습2 화면">
+<img src="./2026-03-11 135510.png" width="45%" alt="실습1 화면">
+<img src="./2026-03-18 1.png" width="45%" alt="실습2 화면">
+<img src="./2026-03-18 2.png" width="45%" alt="실습2 화면">
 </div>
 <br>
 
@@ -28,11 +28,11 @@
 실습5: 모달창 구현 - 챔피온 세부 정보 출력하기 위해 모달창을 구현한다. 내부 페이지는 Aatrox.html를삽입 했고 기본 헤더, 바디, 푸터로 구성되어 있다. 저장 이후 화면을 확인하면 Aatrox 아래에 세부 정보와 상세 보기가 생겼다. 상세파일을 클릭해보면 아직 파일이 없다.
 
 <divalign="center">
-<img src="![alt text](image-3.png)" width="45%" alt="실습1 화면">
-<img src="![alt text](image-2.png)" width="45%" alt="실습2 화면">
-<img src="![alt text](<스크린샷 2026-03-25 213402.png>)" width="45%" alt="실습3 화면">
-<img src="![alt text](image-1.png)" width="45%" alt="실습4 화면">
-<img src="![alt text](image.png)" width="45%" alt="실습5 화면">
+<img src="./image-3.png" width="45%" alt="실습1 화면">
+<img src="./image-2.png" width="45%" alt="실습2 화면">
+<img src="./스크린샷 2026-03-25 213402.png" width="45%" alt="실습3 화면">
+<img src="./image-1.png" width="45%" alt="실습4 화면">
+<img src="./image.png" width="45%" alt="실습5 화면">
 </div>
 <br>
 
@@ -47,9 +47,9 @@
 저장 후 화면을 확인해보면 반응형 표이다.
 
 <divalign="center">
-<img src="![alt text](<스크린샷 2026-04-01 130402.png>)" width="45%" alt="실습1 화면">
-<img src="![alt text](<스크린샷 2026-04-01 131637.png>)" width="45%" alt="실습2 화면">
-<img src="![alt text](<스크린샷 2026-04-01 133714.png>)" width="45%" alt="실습3 화면">
-<img src="![alt text](<스크린샷 2026-04-01 140205.png>)" width="45%" alt="실습3 화면">
+<img src="./스크린샷 2026-04-01 130402.png" width="45%" alt="실습1 화면">
+<img src="./스크린샷 2026-04-01 131637.png" width="45%" alt="실습2 화면">
+<img src="./alt text](<스크린샷 2026-04-01 133714.png" width="45%" alt="실습3 화면">
+<img src="./alt text](<스크린샷 2026-04-01 140205.png" width="45%" alt="실습3 화면">
 </div>
 <br>
