@@ -8,7 +8,7 @@ body {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
                 url('../images/download-banner.jpg') center/cover no-repeat;
     min-height: 60vh;
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content: center;
     text-align: center;
