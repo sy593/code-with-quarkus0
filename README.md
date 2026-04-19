@@ -75,10 +75,8 @@
 
 
 <div align="center">
-<img src="" width="45%" alt="실습1 화면">
-<img src="" width="45%" alt="실습2 화면">
-<img src="" width="45%" alt="실습3 화면">
-<img src="" width="45%" alt="실습4 화면">
+<img src="./스크린샷 2026-04-08 124715.png" width="45%" alt="실습1 화면">
+<img src="./(image-7.png)" width="45%" alt="실습2 화면">
 <img src="./2026-04-08 135723.png" width="45%" alt="실습5 화면">
 </div>
 <br>
@@ -89,4 +87,9 @@
 실습1: 실시간 챔피언 검색하기 - 해당 코드를 뉴스 섹션 하단에 붙여넣기를 해준다. 하지만 아직 동작하지 않는 것을 볼 수 있다. 왜냐하면 검색을 해야 보여지게 되어있기 때문이다.
 구현시키기 위해  search.js에 기존에 있던 코드는 주석처리 해주고 새로운 코드를 넣어준다. 문자열 앞에 이름이 들어가 있는 것을 볼 수 있는데 이것은 객체배열로 키와 값으로 되어 있어서 키로 검색읋 하면 빠르게 찾을 수 있다.
 
+<div align="center">
+<img src="./(image-5.png)" width="45%" alt="실습1 화면">
 <img src="./(image-4.png)" width="45%" alt="실습1 화면">
+<img src="./(image-6.png)" width="45%" alt="실습1 화면">
+</div>
+<br>
