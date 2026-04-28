@@ -69,3 +69,10 @@ body { background-color: #0a0e17; color: #fff; font-family: 'Arial', sans-serif;
 
 .no-result { text-align: center; padding: 80px 20px; color: #666; }
 .no-result h4 { color: #333; }
+
+
+.lol-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+}

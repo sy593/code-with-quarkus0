@@ -63,3 +63,11 @@ body {
 .accent-purple { 
     color: #a020f0; 
 }
+
+
+
+.lol-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+}
