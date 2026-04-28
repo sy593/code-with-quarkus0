@@ -57,7 +57,7 @@
 <img src="./스크린샷 2026-04-01 133714.png" width="45%" alt="실습3 화면">
 <img src="./스크린샷 2026-04-01 140205.png" width="45%" alt="실습3 화면">
 <img src="./스크린샷 hwnv.png" width="45%" alt="과제1 화면">
-<img src="./스크린샷 hwhw2.png" width="45%" alt="과제2 화면">
+<img src="./image-9.png" width="45%" alt="과제2 화면">
 </div>
 <br>
 
