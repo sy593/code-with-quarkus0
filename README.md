@@ -62,7 +62,7 @@
 <img src="./스크린샷 2026-04-01 131637.png" width="45%" alt="실습2 화면">
 <img src="./스크린샷 2026-04-01 133714.png" width="45%" alt="실습3 화면">
 <img src="./스크린샷 2026-04-01 140205.png" width="45%" alt="실습3 화면">
-<img src="./스크린샷 hwnv.png" width="45%" alt="과제1 화면">
+<img src="./image-28.png" width="45%" alt="과제1 화면">
 <img src="./image-9.png" width="45%" alt="과제2 화면">
 </div>
 <br>
@@ -85,12 +85,12 @@
 
 실습5: LOL 기능 구현 중 실시간 챔피언 검색하기 - 검색창을 만들어뒀지만 아무런 반응이 없기 때문에 기능을 추가해야한다. 텍스트창 같은 것이 있는 것을 form창이라고 부른다. 이를 자바스크립트를 이용해 버튼을 누르면 실행이 되도록 본다. search를 searchForm으로 바꿔주고 id가 고유값이다. 그리고 search.js 파일을 만들어서 html 최하단에 연동한다. 그러고 페이지에서 검색을 해보면 오류가 난다. 다시 indev=x.html.dp 하단으로 가서  <script src="js/search.js"></script>를 해주면 오류가 나지 않는다. 내가 클릭을 하는 순간 타입 중 submit이 실행이 되는 것이다.
 
-소감:
+소감: 우리가 사용하는 웹사이트에서 팝업이 뜨는 경우를 자주 보았는데 그 팝업창을 구현해보니 신기했다. 그리고 자바스크립트의 문법이 복잡하고 시대에 따라 많은 변화가 있는 것을 알게 되었다. 그리고 우리가 구현한 것(보통 .js파일)을 제대로 불러오기 위해 index.html에 연결을 해줘야할 것을 주의하게 되었다.
 
 <div align="center">
-<img src="./스크린샷 2026-04-08 124715.png" width="45%" alt="실습1 화면">
-<img src="./Screenshots\2026-04-08 192858.png" width="45%" alt="실습2 화면">
-<img src="./image-10.png" width="45%" alt="실습5 화면">
+<img src="./image-29.png" width="45%" alt="실습1 화면">
+<img src="./image-10.png" width="45%" alt="실습2 화면">
+<img src="./" width="45%" alt="실습5 화면">
 </div>
 <br>
 
