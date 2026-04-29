@@ -55,6 +55,30 @@ const CHAMPIONS = [
         img: "https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Jinx.png",
         difficulty: "중",
     },
+        {
+        name: "멜",
+        engName: "Mel",
+        role: "마법사/서포터",
+        lane: "미드/서포터",
+        img: "images/mel.jpg",
+        difficulty: "중",
+    },
+    {
+        name: "유나라",
+        engName: "Yunara",
+        role: "원거리딜러",
+        lane: "원딜",
+        img: "images/yunara.jpg",
+        difficulty: "중",
+    },
+    {
+        name: "자헨",
+        engName: "Zaahen",
+        role: "전사/암살자",
+        lane: "탑/정글",
+        img: "images/zaahen.jpg",
+        difficulty: "하",
+    },
 ];
 // ── 뉴스 데이터 ──────────────────────────────────────────────
 const NEWS = [
@@ -63,16 +87,35 @@ const NEWS = [
         desc: "2026 루나 레벨 이벤트! 신규 챔피언과 함께하는 특별한 시즌.",
         category: "게임 업데이트",
     },
+    
     {
         title: "패치 노트 16.4",
         desc: "챔피언 밸런스 및 아이템 업데이트 내용을 확인하세요.",
         category: "패치 노트",
     },
 ];
+
+        // ── 메인 화면 다시 보이기 ─────────────────────────────────────
+        function showMainScreen() {
+            // 검색 결과 영역 숨기기
+            document.getElementById("searchResults").style.display = "none";
+            document.getElementById("searchResults").classList.add("d-none");
+
+            // 기존 section 다시 보이기
+            document
+                .querySelectorAll("section:not(#searchResults)")
+                .forEach((s) => s.classList.remove("d-none"));
+        }
 // ── 검색 실행 ────────────────────────────────────────────────
-function performSearch(query) {
-    const q = query.trim().toLowerCase(); // 앞 뒤 공백제거, 소문자 변환
-    if (!q) return;
+            function performSearch(query) {
+                const q = query.trim().toLowerCase(); // 앞 뒤 공백제거, 소문자 변환
+
+                // 검색어가 없거나 공백이면 메인 화면으로 돌아가기
+                if (!q) {
+                    showMainScreen();
+                    return;
+                }
+
     document.getElementById("searchKeywordDisplay").textContent = `"${query}"`; // 검색어 인식
     // 챔피온 데이터에서 이름, 영문명, 역할군, 라인 중 하나라도 검색어에 포함되면
     const champResults = CHAMPIONS.filter(
@@ -89,6 +132,21 @@ function performSearch(query) {
             n.desc.toLowerCase().includes(q) ||
             n.category.toLowerCase().includes(q),
     );
+
+                    // ── 메인 화면 다시 보이기 
+                function showMainScreen() {
+                    // 검색 결과 영역 숨기기
+                    document.getElementById("searchResults").style.display = "none";
+                    document.getElementById("searchResults").classList.add("d-none");
+
+                    // 기존 section 다시 보이기
+                    const sections = document.querySelectorAll("section:not(#searchResults)");
+
+                    sections.forEach(function(section) {
+                        section.classList.remove("d-none");
+                    });
+                }
+
     document.getElementById("champCount").textContent =
         `(${champResults.length})`; // 검색 결과 개수를 카운트 영역에 표시
     document.getElementById("newsCount").textContent = `(${newsResults.length})`;
