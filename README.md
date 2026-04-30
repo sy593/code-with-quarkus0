@@ -134,7 +134,7 @@
 ## 9주차수업내용
 실습1: 다크모드 / 라이트 모드 전환 - toggle/js라는 파일을 만들어서 피피티에 있는 코드를 넣어주고 index.html에 방금 만들어준 toggle.js를 연결해준다. togggle.js에 추가한 코드는 기본에 있었던 다크 모드를 지워주고 필요한 속성들로 교체해주거나 콘텐츠가 라이트가 아니라 다크라면 기존에 있던 라이트 모드를 지워주고 다크 속성으로 교체해주는 일을 한다.
 
-실습2: 데이터베이스 연동 - MySQL 데이터베이스를 프로젝트와 연동하는 과정을 진행하였다. 비밀번호를 설정했고 시작은 mysql을 입력하고 현재 데이터베이스 확인하고 싶으면 show databases; 라고 친다. 새로운 db생성(LOL 웹 서버 전용)하고 싶으면 create database lol;를 치고 MYSQL 내부, db 사용 및 테이블 보고 싶으면 use mysql;를 친 후 show tables;를 치면 된다. 마지막으로 최하단 user 테이블(구조 및 정보 조회)를 원한다면 desc user; 후에 select * from user; (root 계정 확인)을 치면 아래와 같은 화면을 볼 수 있다.
+실습2: 데이터베이스 연동 - MySQL 데이터베이스를 프로젝트와 연동하는 과정을 진행하였다. 비밀번호를 설정했고 시작은 mysql을 입력하고 현재 데이터베이스 확인하고 싶으면 show databases; 라고 친다. 새로운 db생성(LOL 웹 서버 전용)하고 싶으면 create database lol;를 치고 MYSQL 내부, db 사용 및 테이블 보고 싶으면 use mysql;를 친 후 show tables;를 치면 된다. 마지막으로 최하단 user 테이블(구조 및 정보 조회)를 원한다면 desc user; 후에 select * from user; (root 계정 확인)을 치면 아래와 같은 화면을 볼 수 있다. 그리고 항상 명령어 마무리는 ;이므로 주의한다.
 
 실습3: 데이터베이스 연동 (프로젝트 dev 보드를 통한 확인) - Quarkus의 Dev UI를 통해 데이터베이스 연동 상태를 확인하였다. 서버 실행 후 http://localhost:8080/q/dev/에 접속하여 DB connection pool과 MySQL 연결 정보를 확인하였고, champion 테이블이 생성되었는지 확인한 후 http://localhost:8080/champions 경로에서 챔피언 데이터가 JSON 형식으로 출력되는 것을 확인하여 데이터베이스와 웹 서버가 정상적으로 연동된 것을 아래 화면처럼 확인할 수 있었다.
 
