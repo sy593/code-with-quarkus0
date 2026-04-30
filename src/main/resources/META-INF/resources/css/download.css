@@ -71,3 +71,85 @@ body {
     width: auto;
     display: block;
 }
+
+
+
+
+/* ── 라이트 모드 ───────────────────────────────────────────── */
+body.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.light-mode .navbar {
+    background-color: #e9ecef !important;
+}
+
+body.light-mode .navbar .navbar-brand,
+body.light-mode .navbar .nav-link,
+body.light-mode #themeToggleBtn {
+    color: #212529 !important;
+}
+
+body.light-mode .hero {
+    background: linear-gradient(to bottom, #dce3ea, #f8f9fa);
+    color: #212529;
+}
+
+body.light-mode .hero h1 {
+    color: #212529;
+    text-shadow: none;
+}
+
+body.light-mode .nav-tabs .nav-link {
+    color: #212529;
+}
+
+body.light-mode .nav-tabs .nav-link.active {
+    background-color: #ffffff;
+    color: #800080;
+    border-color: #a020f0;
+}
+
+body.light-mode .table {
+    --bs-table-bg: #ffffff;
+    --bs-table-color: #212529;
+    --bs-table-border-color: #dee2e6;
+}
+
+body.light-mode .table th {
+    background-color: #e9ecef;
+    color: #212529;
+}
+
+body.light-mode .card {
+    background-color: #ffffff;
+    color: #212529;
+    border: 1px solid #dee2e6;
+}
+
+body.light-mode .accent-purple {
+    color: #800080;
+}
+
+
+
+.theme-toggle-btn {
+    font-size: 1.1rem !important;
+    color: #fff !important;
+    padding-left: 8px;
+    padding-right: 16px;
+    line-height: 1.5;
+}
+
+body.light-mode .theme-toggle-btn {
+    color: #212529 !important;
+}
+
+.navbar .nav-link {
+    font-size: 1rem;
+}
+
+.navbar-brand {
+    font-size: 1rem;
+}

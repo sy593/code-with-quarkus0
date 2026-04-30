@@ -12,8 +12,9 @@ const CHAMPIONS = [
         engName: "Aatrox",
         role: "전사",
         lane: "탑",
-        img: "images/Aatrox.png",
+        img: "images/Aa1.jpg",
         difficulty: "상",
+        modalId: "modalAatrox",
     },
     {
         name: "사일러스",
@@ -62,6 +63,7 @@ const CHAMPIONS = [
         lane: "미드/서포터",
         img: "images/mel.jpg",
         difficulty: "중",
+        modalId: "modalMel",
     },
     {
         name: "유나라",
@@ -70,6 +72,7 @@ const CHAMPIONS = [
         lane: "원딜",
         img: "images/yunara.jpg",
         difficulty: "중",
+        modalId: "modalYunara",
     },
     {
         name: "자헨",
@@ -78,6 +81,7 @@ const CHAMPIONS = [
         lane: "탑/정글",
         img: "images/zaahen.jpg",
         difficulty: "하",
+        modalId: "modalZaahen",
     },
 ];
 // ── 뉴스 데이터 ──────────────────────────────────────────────
@@ -154,19 +158,45 @@ const NEWS = [
     if (champResults.length === 0) {
         champList.innerHTML = `<div class="no-result"><h4>검색 결과 없음</h4><p>"${query}"에 해당하는 챔피언이 없습니다.</p></div>`;
     } else {
-        champList.innerHTML = champResults
-            .map(
-                (c) => `
+//         champList.innerHTML = champResults
+//             .map(
+//                 (c) => `
+// <div class="search-result-card d-flex align-items-center p-0 overflow-hidden">
+// <img src="${c.img}" alt="${c.name}">
+// <div class="p-3">
+// <div style="font-weight:700; font-size:1rem; color:#111;">${c.name} <span style="color:#888; font-size:0.85rem;">(${c.engName})</span></div>
+// <div style="color:#555; font-size:0.9rem; margin-top:4px;">역할: ${c.role} &nbsp;|&nbsp; 라인: ${c.lane} &nbsp;|&nbsp; 난이도: ${c.difficulty}</div>
+// </div>
+// </div>
+// `,
+//             )
+//             .join("");
+champList.innerHTML = champResults
+    .map(
+        (c) => `
 <div class="search-result-card d-flex align-items-center p-0 overflow-hidden">
-<img src="${c.img}" alt="${c.name}">
-<div class="p-3">
-<div style="font-weight:700; font-size:1rem; color:#111;">${c.name} <span style="color:#888; font-size:0.85rem;">(${c.engName})</span></div>
-<div style="color:#555; font-size:0.9rem; margin-top:4px;">역할: ${c.role} &nbsp;|&nbsp; 라인: ${c.lane} &nbsp;|&nbsp; 난이도: ${c.difficulty}</div>
-</div>
+    <img src="${c.img}" alt="${c.name}">
+
+    <div class="p-3">
+        <div style="font-weight:700; font-size:1rem; color:#111;">
+            ${c.name} 
+            <span style="color:#888; font-size:0.85rem;">(${c.engName})</span>
+        </div>
+
+        <div style="color:#555; font-size:0.9rem; margin-top:4px;">
+            역할: ${c.role} &nbsp;|&nbsp; 라인: ${c.lane} &nbsp;|&nbsp; 난이도: ${c.difficulty}
+        </div>
+
+        <button class="btn btn-outline-dark btn-sm mt-2"
+            data-bs-toggle="modal"
+            data-bs-target="#${c.modalId}">
+            상세 보기
+        </button>
+    </div>
 </div>
 `,
-            )
-            .join("");
+    )
+    .join("");
     }
     const newsList = document.getElementById("newsResultList"); // 검색 결과 없는 경우, 있으면 카드형태 출력
     if (newsResults.length === 0) {

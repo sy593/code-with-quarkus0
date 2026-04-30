@@ -32,3 +32,4 @@ console.log("let 재할당:", y);
 const z = 50;
 // z = 60; // 에러 (재할당 불가)
 console.log("const 값:", z);
+

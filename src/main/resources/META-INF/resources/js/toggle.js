@@ -16,3 +16,27 @@ navbar.classList.remove('navbar-light', 'bg-light');
 navbar.classList.add('navbar-dark', 'bg-dark');
 }
 }
+
+
+
+function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+
+    const themeButtons = document.querySelectorAll(".theme-toggle-btn");
+
+    themeButtons.forEach(function(button) {
+        if (document.body.classList.contains("light-mode")) {
+            button.textContent = "LIGHT";
+        } else {
+            button.textContent = "DARK";
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const themeButtons = document.querySelectorAll(".theme-toggle-btn");
+
+    themeButtons.forEach(function(button) {
+        button.addEventListener("click", toggleTheme);
+    });
+});

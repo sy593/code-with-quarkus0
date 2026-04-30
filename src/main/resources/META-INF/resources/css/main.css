@@ -89,3 +89,24 @@ body.light-mode .hero { background: linear-gradient(to bottom, #dce3ea, #f8f9fa)
 body.light-mode .card { background-color: #ffffff; color: #212529; border: 1px solid #dee2e6; }
 body.light-mode .card-title { color: #212529; }
 body.light-mode .card-text { color: #555; }
+
+
+.theme-toggle-btn {
+    font-size: 1.1rem !important;
+    color: #fff !important;
+    padding-left: 8px;
+    padding-right: 16px;
+    line-height: 1.5;
+}
+
+body.light-mode .theme-toggle-btn {
+    color: #212529 !important;
+}
+
+.navbar .nav-link {
+    font-size: 1rem;
+}
+
+.navbar-brand {
+    font-size: 1rem;
+}
