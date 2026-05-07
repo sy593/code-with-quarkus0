@@ -157,8 +157,8 @@
 <img src="./image-27.png" width="45%" alt="실습3 화면">
 <img src="./image-33.png" width="45%" alt="과제1 화면">
 <img src="./image-34.png" width="45%" alt="과제1 화면">
-<img src="./image-39.png" width="45%" alt="과제2 화면">
-<img src="./image-40.png" width="45%" alt="과제2 화면">
+<img src="./image-46.png" width="45%" alt="과제2 화면">
+<img src="./image-47.png" width="45%" alt="과제2 화면">
 </div>
 <br>
 
@@ -173,15 +173,16 @@
 
 실습4: 이제 임시 사용자 데이터를 삽입하기 위하여 피피티에 있는 코드를 DataSeeder.java에 추가한다. 그러고 에러가 뜨는데 User 클래스 연동(import)하려고 눌러보면 quick fix가 뜨고 세번째 줄 org가 있는 것을 눌러주면 연동이 된다. 그러고 dev UI에 들어가면 아래처럼 구현된 것을 볼 수 있다. 우리가 사용한 방법은 Active Record이다. 뱅킹이나 카드사같이 사람들이 많이 쓰는 것은 이 방법으로 쓰이지 못하기 때문에 더 보안성이 좋고 많은 사람들이 이용할 수 있게 Data Mapper를 사용한다.
 
-<과제> - 다운로드 화면
+<과제> - 로그인 페이지의 다크/라이트 모드를 구현한다: 
 
 <소감>: 나는 로그인 화면에서 로그인을 하게 되면 다시 메인화면으로 돌아가게 되는줄 알았는데 로그아웃 화면을 다시 만들어야한다는 것을 알게 되었다. 그리고 세션을 배울때 인터넷 뱅킹을 사용하다가 30분 정도 지나면 로그아웃 되는 것이 신경쓰였는데 이 기능이 세션이라는 것을 알게되었고 중요한 기능인 것을 알게되었다. 세션이 유지되어야 돈도 보내는 그런것을 할 수 있다는 것을 알게 되었고 세션 기능인것을 알게 되었다.
 
 <div align="center">
-<img src="image-41.png" width="45%" alt="실습2 화면">
-<img src="image-42.png" width="45%" alt="실습3 화면">
-<img src="image-43.png" width="45%" alt="실습3 화면">  
-<img src="image-44.png" width="45%" alt="실습3 화면">  
+<img src="./image-41.png" width="45%" alt="실습2 화면">
+<img src="./image-42.png" width="45%" alt="실습3 화면">
+<img src="./image-43.png" width="45%" alt="실습3 화면">  
+<img src="./image-44.png" width="45%" alt="실습3 화면">  
+<img src="./image-45.png" width="45%" alt="과제 화면">
 </div>
 <br>
 
@@ -194,7 +195,6 @@
 
 
 <div align="center">
-<img src="" width="45%" alt="실습1 화면">
 <img src="" width="45%" alt="실습1 화면">
 <img src="" width="45%" alt="실습1 화면">
 <img src="" width="45%" alt="실습2 화면">
