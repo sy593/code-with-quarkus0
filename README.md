@@ -157,8 +157,8 @@
 <img src="./image-27.png" width="45%" alt="실습3 화면">
 <img src="./image-33.png" width="45%" alt="과제1 화면">
 <img src="./image-34.png" width="45%" alt="과제1 화면">
-<img src="./image-46.png" width="45%" alt="과제2 화면">
-<img src="./image-47.png" width="45%" alt="과제2 화면">
+<img src="image-46.png" width="45%" alt="과제2 화면">
+<img src="image-47.png" width="45%" alt="과제2 화면">
 </div>
 <br>
 
@@ -182,7 +182,7 @@
 <img src="./image-42.png" width="45%" alt="실습3 화면">
 <img src="./image-43.png" width="45%" alt="실습3 화면">  
 <img src="./image-44.png" width="45%" alt="실습3 화면">  
-<img src="./image-45.png" width="45%" alt="과제 화면">
+<img src="image-45.png" width="45%" alt="과제 화면">
 </div>
 <br>
 

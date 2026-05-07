@@ -76,8 +76,9 @@ body {
 
 
 /* ── 라이트 모드 ───────────────────────────────────────────── */
-body.light-mode {
-    background-color: #f8f9fa;
+body.light-mode .hero {
+    background: linear-gradient(rgba(255,255,255,0.35), rgba(248,249,250,0.65)),
+                url('../images/download-banner.jpg') center/cover no-repeat;
     color: #212529;
 }
 
@@ -152,4 +153,41 @@ body.light-mode .theme-toggle-btn {
 
 .navbar-brand {
     font-size: 1rem;
+}
+
+/* ── 라이트 모드: 다운로드 페이지 배경 이미지 유지 ───────────── */
+body.light-mode {
+    background-color: #f8f9fa !important;
+    color: #212529;
+}
+
+body.light-mode .hero {
+    background: linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+                url('../images/download-banner.jpg') center/cover no-repeat;
+    color: #212529;
+}
+
+body.light-mode .hero h1 {
+    color: #6f42c1;
+    text-shadow: none;
+}
+
+body.light-mode .hero p {
+    color: #333;
+}
+
+body.light-mode section.container {
+    background-color: #f8f9fa !important;
+    color: #212529;
+}
+
+body.light-mode .btn-outline-light {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+body.light-mode .btn-outline-light:hover {
+    color: #212529;
+    background-color: #ffffff;
+    border-color: #ffffff;
 }
