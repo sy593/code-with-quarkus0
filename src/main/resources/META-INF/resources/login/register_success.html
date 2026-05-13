@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>League of Legends - 로그인</title>
+  <title>League of Legends - 가입 완료</title>
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- index.html에서 사용하던 main.css 재활용 -->
+  <!-- 기존 index.html / register.html에서 사용하던 main.css 재활용 -->
   <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
 
-  <!-- index.html 네비바 재활용 -->
+  <!-- 기존 네비게이션 바 재활용 -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
 
@@ -47,7 +47,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/login">로그인</a>
+            <a class="nav-link" href="/login">로그인</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -68,51 +68,28 @@
     </div>
   </nav>
 
-  <!-- 로그인 화면 -->
+  <!-- 가입 완료 페이지 -->
   <section class="hero d-flex align-items-center justify-content-center text-center py-5">
     <div class="container" style="max-width: 400px;">
-      <h2 class="fw-bold mb-4">로그인</h2>
 
-        <form id="loginForm" method="POST" action="/login_check">
+      <h2 class="fw-bold mb-4">🎉 가입 완료!</h2>
 
-          <div class="mb-3 text-start">
-            <label class="form-label">아이디</label>
-            <input type="text" class="form-control"
-                  id="usernameInput"
-                  name="username"
-                  placeholder="아이디 입력"
-                  required>
-            <div class="invalid-feedback" id="usernameMsg"></div>
-          </div>
+      <p class="lead mb-4">
+        환영합니다!<br>
+        가입이 완료되었습니다.<br>
+        로그인 후 서비스를 이용해보세요.
+      </p>
 
-          <div class="mb-3 text-start">
-            <label class="form-label">패스워드</label>
-            <input type="password" class="form-control"
-                  id="passwordInput"
-                  name="password"
-                  placeholder="패스워드 입력"
-                  required>
-            <div class="invalid-feedback" id="passwordMsg"></div>
-          </div>
+      <a href="/login" class="btn btn-primary w-100">
+        로그인 하러 가기
+      </a>
 
-          <button type="button" class="btn btn-primary w-100" onclick="validateAndLogin()">
-            로그인
-          </button>
-
-          <hr>
-
-          <a href="/register" class="btn btn-outline-secondary w-100">
-            회원가입
-          </a>
-
-        </form>
     </div>
   </section>
 
   <!-- JS -->
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="/js/toggle.js"></script>
-  <script src="/js/login.js"></script>
 
 </body>
 </html>
