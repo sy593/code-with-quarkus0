@@ -207,6 +207,7 @@ register.html은 기존 index.html의 네비게이션 바와 main.css를 재활�
 register.html에는 해시된 패스워드를 서버로 전송하기 위한 hidden input을 추가한다. 사용자가 입력한 원본 패스워드는 직접 전송하지 않고, hashPassword() 함수로 생성한 해시값을 hidden input인 hashedPassword에 저장한 뒤 name="password" 값으로 서버에 전달되도록 한다.
 입력값 검사를 모두 통과하면 가입 확인 모달창이 출력된다. 모달에는 아이디, 이메일, 연락처만 표시하고 패스워드는 ******** (암호화 전송)으로 표시된다. 
 이후 사용자가 가입하기 버튼을 클릭하면 submitRegister() 함수가 실행되어 /register_check로 회원가입 데이터가 전송된다.
+dev UI에도 구현된 것 아래 사진처럼 볼 수 있다. 회원가입이 정상적으로 처리된 후 새로운 사용자 정보가 DB에 저장되었으며, password 컬럼에는 원본 패스워드가 아닌 SHA-256 해시값이 저장된 것을 확인할 수 있다. 이를 통해 패스워드가 평문으로 저장되지 않고 암호화된 값으로 관리되는 것을 확인할 수 있었다.
 
 <과제> - 로그인 화면 입력값 체크: 로그인 화면에도 회원가입 화면과 동일하게 입력값 유효성 검사 기능을 추가하는 과제이다. js 폴더에 login.js 파일을 생성하고, validateAndLogin() 함수를 작성한다. 
 로그인 버튼을 누르면 아이디와 패스워드 입력값을 먼저 검사하도록 하고 회원가입과 동일하게 아이디는 4~20자 영문/숫자만 허용하고 패스워드는 8자 이상이며 영문, 숫자, 특수문자를 포함하도록 구현하였다. 입력값이 조건에 맞지 않으면 is-invalid 클래스와 invalid-feedback 영역을 이용하여 오류 메시지가 표시되도록 하였다. 두 입력값이 모두 유효한 경우에만 loginForm이 /login_check 경로로 전송된다.
@@ -229,6 +230,7 @@ register.html에는 해시된 패스워드를 서버로 전송하기 위한 hidd
 <img src="image-56.png" width="45%" alt="실습5 화면">
 <img src="image-58.png" width="45%" alt="실습5 화면">
 <img src="image-57.png" width="45%" alt="실습5 화면">
+<img src="image-62.png" width="45%" alt="실습5 화면">
 <img src="image-61.png" width="45%" alt="과제 화면">
 <img src="image-53.png" width="45%" alt="문제해결 전 화면1 화면">
 <img src="image-54.png" width="45%" alt="문제해결 완료1 화면">
