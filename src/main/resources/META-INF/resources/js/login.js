@@ -4,7 +4,7 @@ function validateAndLogin() {
     const username = document.getElementById("usernameInput").value.trim();
     const password = document.getElementById("passwordInput").value;
 
-    // ① 아이디 유효성 검사: 4~20자 영문/숫자
+    // 아이디: 4~20자 영문/숫자
     const usernameRegex = /^[a-zA-Z0-9]{4,20}$/;
 
     if (!usernameRegex.test(username)) {
@@ -14,17 +14,17 @@ function validateAndLogin() {
         clearError("usernameInput", "usernameMsg");
     }
 
-    // ② 패스워드 유효성 검사: 8자 이상, 영문 + 숫자 + 특수문자 포함
+    // 패스워드: 8자 이상, 영문 + 숫자 + 특수문자 포함
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
 
     if (!passwordRegex.test(password)) {
-        showError("passwordInput", "passwordMsg", "패스워드는 8자 이상이며 영문, 숫자, 특수문자를 포함해야 합니다.");
+        showError("passwordInput", "passwordMsg", "8자 이상, 영문+숫자+특수문자를 포함해야 합니다.");
         valid = false;
     } else {
         clearError("passwordInput", "passwordMsg");
     }
 
-    // ③ 두 항목 모두 통과 시 로그인 실행
+    // 유효성 검사를 통과하면 암호화 후 로그인 실행
     if (valid) {
         submitLogin();
     }
@@ -54,6 +54,12 @@ function clearError(inputId, msgId) {
     }
 }
 
-function submitLogin() {
+async function submitLogin() {
+    const password = document.getElementById("passwordInput").value;
+
+    const hashed = await hashPassword(password);
+
+    document.getElementById("password").value = hashed;
+
     document.getElementById("loginForm").submit();
 }

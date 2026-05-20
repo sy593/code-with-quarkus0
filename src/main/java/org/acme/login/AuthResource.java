@@ -17,6 +17,7 @@ import java.net.URI;
 import jakarta.transaction.Transactional;
 
 
+
 @Path("/")
 public class AuthResource {
 
@@ -60,6 +61,25 @@ public class AuthResource {
                 .seeOther(URI.create("/after_login"))
                 .build();
     }
+
+// GET / → 세션 유무에 따라 메인 페이지 분기
+@GET
+@Produces(MediaType.TEXT_HTML)
+public Response mainPage() {
+String loginUser = context.session().get("loginUser");
+System.out.println("=== [GET /] 세션 ID : " +
+context.session().id());
+System.out.println("=== [GET /] loginUser : " + loginUser);
+String htmlPath = (loginUser != null)
+? "META-INF/resources/login/main_after_login.html"
+: "META-INF/resources/main_index.html";
+InputStream html =
+getClass().getClassLoader().getResourceAsStream(htmlPath);
+return Response.ok(html).build();
+}
+
+
+
 
     // GET /after_login → 로그인 후 페이지 반환
     @GET
