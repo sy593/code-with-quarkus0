@@ -254,3 +254,19 @@ dev UI에도 구현된 것 아래 사진처럼 볼 수 있다. 회원가입이 �
 <img src="image-66.png" width="45%" alt="실습3 화면">
 </div>
 <br>
+
+
+
+## 13주차수업내용
+실습1: 프로필 페이지 구현 - main_after_login.html을 복사해서 사용하고 AuthResource.java에 /profile 엔드포인트를 작성하여 로그인한 사용자만 접근할 수 있도록 처리하였다. profile.html에는 기본 프로필 이미지, 사용자 정보 출력 영역, 사진 업로드 폼을 작성하였다.
+
+또한 profile.js를 통해 /profile/info에서 사용자 정보를 받아와 아이디, 이메일, 연락처를 화면에 표시하도록 하였다. 기본 이미지가 표시되지 않는 문제는 JS에서 이미지 경로를 다시 덮어쓰고 있었기 때문에 발생했으며, 기본 이미지 경로를 /images/default.png로 맞추어 해결하였다.
+
+
+<div align="center">
+<img src="image-67.png" width="45%" alt="실습 화면">
+<img src="image-68.png" width="45%" alt="실습 화면">
+<img src="image-69.png" width="45%" alt="실습 화면">
+<img src="" width="45%" alt="실습 화면">
+</div>
+<br>
