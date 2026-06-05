@@ -2,22 +2,20 @@ package org.acme.login;
 
 import io.vertx.ext.web.RoutingContext;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import jakarta.transaction.Transactional;
 
 import java.io.InputStream;
 import java.net.URI;
-
-
 import java.util.Map;
-
 
 @Path("/")
 public class AuthResource {
@@ -89,10 +87,8 @@ public class AuthResource {
     @Produces(MediaType.TEXT_HTML)
     public Response afterLogin() {
 
-        // 세션 체크: 로그인 안 한 사용자 차단
         String loginUser = context.session().get("loginUser");
 
-        // 세션 내용 로그 출력
         System.out.println("=== 세션 ID : " + context.session().id());
         System.out.println("=== loginUser : " + loginUser);
 
@@ -112,15 +108,19 @@ public class AuthResource {
     // GET /logout → 로그아웃 처리
     @GET
     @Path("/logout")
-    public Response logout() {
+    public Response logout(@QueryParam("next") String next) {
 
         System.out.println("=== 로그아웃 전 세션 ID : " + context.session().id());
         System.out.println("=== 로그아웃 전 loginUser : " + context.session().get("loginUser"));
 
         context.session().destroy();
 
+        String redirect = (next != null && next.equals("login"))
+                ? "/login"
+                : "/";
+
         return Response
-                .seeOther(URI.create("/"))
+                .seeOther(URI.create(redirect))
                 .build();
     }
 
@@ -145,7 +145,7 @@ public class AuthResource {
     @Produces(MediaType.TEXT_HTML)
     public Response registerCheck(
             @FormParam("username") String username,
-            @FormParam("password") String password,   // SHA-256 해시값
+            @FormParam("password") String password,
             @FormParam("email") String email,
             @FormParam("phone") String phone) {
 
@@ -166,7 +166,7 @@ public class AuthResource {
         // ③ DB 삽입
         User newUser = new User();
         newUser.username = username;
-        newUser.password = password;  // 해시값 저장
+        newUser.password = password;
         newUser.email = email;
         newUser.phone = phone;
 
@@ -197,7 +197,7 @@ public class AuthResource {
     @Produces(MediaType.TEXT_HTML)
     public Response profilePage() {
 
-        // ① 세션 체크: 로그인 안 한 사용자 차단
+        // ① 세션 체크
         String loginUser = context.session().get("loginUser");
 
         if (loginUser == null) {
@@ -223,32 +223,102 @@ public class AuthResource {
         return Response.ok(html).build();
     }
 
-
     // GET /profile/info → 로그인한 사용자 정보 JSON 반환
-@GET
-@Path("/profile/info")
-@Produces(MediaType.APPLICATION_JSON)
-public Response profileInfo() {
-// 세션 체크
-String loginUser = context.session().get("loginUser");
-if (loginUser == null) {
-return Response.status(401).build();
-}
-// DB 조회
-User user = User.findByUsername(loginUser);
+    @GET
+    @Path("/profile/info")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response profileInfo() {
 
+        // 세션 체크
+        String loginUser = context.session().get("loginUser");
 
-// JSON 응답
-return Response.ok(
-Map.of(
-"username", user.username,
-"email", user.email != null ? user.email : "",
-"phone", user.phone != null ? user.phone : "",
-"profileImage", user.profileImage != null
-? user.profileImage : ""
-)
-).build();
-}
+        if (loginUser == null) {
+            return Response.status(401).build();
+        }
 
+        // DB 조회
+        User user = User.findByUsername(loginUser);
 
+        // JSON 응답
+        return Response.ok(
+                Map.of(
+                        "username", user.username,
+                        "email", user.email != null ? user.email : "",
+                        "phone", user.phone != null ? user.phone : "",
+                        "profileImage", user.profileImage != null ? user.profileImage : ""
+                )
+        ).build();
+    }
+
+    // POST /profile/update → 회원정보 수정 처리
+    @POST
+    @Path("/profile/update")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response profileUpdate(
+            @FormParam("email") String email,
+            @FormParam("phone") String phone) {
+
+        // ① 세션 체크
+        String loginUser = context.session().get("loginUser");
+
+        if (loginUser == null) {
+            return Response
+                    .seeOther(URI.create("/login"))
+                    .build();
+        }
+
+        // ② 이메일 중복 체크, 본인 제외
+        User found = User.findByEmail(email);
+
+        if (found != null && !found.username.equals(loginUser)) {
+            return Response
+                    .seeOther(URI.create("/profile?error=duplicate_email"))
+                    .build();
+        }
+
+        // ③ DB 업데이트
+        User user = User.findByUsername(loginUser);
+        user.email = email;
+        user.phone = phone;
+
+        return Response
+                .seeOther(URI.create("/profile?success=updated"))
+                .build();
+    }
+
+    // POST /profile/password → 비밀번호 변경 처리
+    @POST
+    @Path("/profile/password")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response profilePassword(
+            @FormParam("currentPassword") String currentPassword,
+            @FormParam("newPassword") String newPassword) {
+
+        // ① 세션 체크
+        String loginUser = context.session().get("loginUser");
+
+        if (loginUser == null) {
+            return Response
+                    .seeOther(URI.create("/login"))
+                    .build();
+        }
+
+        // ② 현재 비밀번호 확인
+        User user = User.findByUsername(loginUser);
+
+        if (!user.password.equals(currentPassword)) {
+            return Response
+                    .seeOther(URI.create("/profile?error=wrong_password"))
+                    .build();
+        }
+
+        // ③ 새 비밀번호로 DB 업데이트
+        user.password = newPassword;
+
+        return Response
+                .seeOther(URI.create("/profile?success=password_changed"))
+                .build();
+    }
 }

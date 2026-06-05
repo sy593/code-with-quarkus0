@@ -43,7 +43,13 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" href="/profile">👤 프로필</a>
+            <a class="nav-link active"
+               id="profileNavLink"
+               href="/profile"
+               data-bs-toggle="tooltip"
+               data-bs-placement="bottom">
+              👤 프로필
+            </a>
           </li>
 
           <li class="nav-item">
@@ -67,11 +73,11 @@
 
       <!-- 프로필 사진 영역 -->
       <div class="mb-4 text-center">
-<img id="profileImg"
-     src="../uploads/profile/default.png"
-     class="rounded-circle"
-     alt="프로필 사진"
-     style="width:120px; height:120px; object-fit:cover; border:3px solid #ffffff; display:block; margin:0 auto;">
+        <img id="profileImg"
+             src="/uploads/profile/default.png"
+             class="rounded-circle"
+             alt="프로필 사진"
+             style="width:120px; height:120px; object-fit:cover; border:3px solid #ffffff; display:block; margin:0 auto;">
       </div>
 
       <!-- 사용자 정보 출력 -->
@@ -96,6 +102,11 @@
         </div>
       </div>
 
+      <!-- 업로드 오류 메시지 출력 영역 -->
+      <div id="uploadErrorMsg"
+           class="alert alert-danger d-none mb-3">
+      </div>
+
       <!-- 사진 업로드 폼 -->
       <form id="uploadForm"
             method="POST"
@@ -111,7 +122,7 @@
                  name="profileImage"
                  accept="image/jpeg,image/png,image/gif,image/webp">
 
-          <div class="form-text text-muted">
+          <div class="form-text mt-1" style="color: #adb5bd;">
             jpg, png, gif, webp / 최대 5MB
           </div>
         </div>
@@ -120,19 +131,160 @@
           사진 업로드
         </button>
 
-        
+      </form>
+
+
+      <!-- 개인정보 수정 폼 -->
+      <hr class="my-4">
+
+      <!-- 토글 버튼 -->
+      <button class="btn btn-warning w-100 mb-2"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#updateFormArea"
+              aria-expanded="false">
+        📝 개인정보 수정
+      </button>
+
+      <!-- 기본 숨김 → 버튼 클릭 시 펼쳐짐 -->
+      <div class="collapse" id="updateFormArea">
+        <div class="card card-body bg-dark text-white border-secondary mt-2">
+
+          <!-- 수정 결과 메시지 -->
+          <div id="updateMsg" class="alert d-none mb-3"></div>
+
+          <form id="updateForm"
+                method="POST"
+                action="/profile/update">
+
+            <div class="mb-3 text-start">
+              <label class="form-label">이메일</label>
+              <input type="text"
+                     class="form-control"
+                     id="updateEmail"
+                     name="email"
+                     placeholder="example@email.com">
+              <div class="invalid-feedback" id="updateEmailMsg"></div>
+            </div>
+
+            <div class="mb-3 text-start">
+              <label class="form-label">연락처</label>
+              <input type="text"
+                     class="form-control"
+                     id="updatePhone"
+                     name="phone"
+                     placeholder="010-0000-0000">
+              <div class="invalid-feedback" id="updatePhoneMsg"></div>
+            </div>
+
+            <button type="button"
+                    class="btn btn-warning w-100"
+                    onclick="validateAndUpdate()">
+              수정 완료
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+
+      <!-- 비밀번호 변경 폼 -->
+      <hr class="my-4">
+
+      <h5 class="fw-bold mb-3">🔐 비밀번호 변경</h5>
+
+      <!-- 결과 메시지 -->
+      <div id="pwMsg" class="alert d-none mb-3"></div>
+
+      <form id="pwForm"
+            method="POST"
+            action="/profile/password">
+
+        <div class="mb-3 text-start">
+          <label class="form-label">현재 비밀번호</label>
+
+          <!-- 입력용: 서버 전송 안 됨 -->
+          <input type="password"
+                 class="form-control"
+                 id="currentPwInput"
+                 placeholder="현재 비밀번호 입력"
+                 required>
+
+          <div class="invalid-feedback" id="currentPwMsg"></div>
+
+          <!-- 해시값 전송용 hidden -->
+          <input type="hidden"
+                 id="currentPassword"
+                 name="currentPassword">
+        </div>
+
+        <div class="mb-3 text-start">
+          <label class="form-label">새 비밀번호</label>
+
+          <input type="password"
+                 class="form-control"
+                 id="newPwInput"
+                 placeholder="8자 이상, 영문+숫자+특수문자"
+                 required>
+
+          <div class="invalid-feedback" id="newPwMsg"></div>
+
+          <input type="hidden"
+                 id="newPassword"
+                 name="newPassword">
+        </div>
+
+        <div class="mb-3 text-start">
+          <label class="form-label">새 비밀번호 확인</label>
+
+          <input type="password"
+                 class="form-control"
+                 id="newPwConfirm"
+                 placeholder="새 비밀번호 재입력"
+                 required>
+
+          <div class="invalid-feedback" id="newPwConfirmMsg"></div>
+        </div>
+
+        <button type="button"
+                class="btn btn-danger w-100"
+                onclick="validateAndChangePassword()">
+          비밀번호 변경
+        </button>
+
       </form>
 
     </div>
   </section>
 
 
-</body>
+  <!-- Toast 컨테이너 -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+    <div id="liveToast"
+         class="toast align-items-center text-white bg-success border-0"
+         role="alert">
+
+      <div class="d-flex">
+        <div class="toast-body" id="toastBody">
+          메시지
+        </div>
+
+        <button type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast">
+        </button>
+      </div>
+
+    </div>
+  </div>
+
 
   <!-- JS -->
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="/js/toggle.js"></script>
+  <script src="/js/input_sha256.js"></script>
   <script src="/js/profile.js"></script>
 
+</body>
 </html>
-
